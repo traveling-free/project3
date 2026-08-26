@@ -7,9 +7,9 @@ This repository has my course project using the UCI Human Activity Recognition w
 
 ## Analysis
 The 'run.analysis.R' script: 
-1. Reads the subject, y (activity), and X (measurement variables) for both train and test datasets. 
-2. Merges subject, y, and X accordingly for both train and test datasets.
-3. Merges the train and test datasets.
+1. Read the subject, y (activity), and X (measurement variables) for both train and test datasets. 
+2. Merge subject, y, and X accordingly for both train and test datasets.
+3. Merge the train and test datasets.
 4. Change the column names of X with names of the features_txt.
 5. Switch the column names of y with the name, "activity".
 6. Substitute activity codes with descriptive activity names.
