@@ -4,7 +4,7 @@ https://archive.ics.uci.edu/dataset/240/human+activity+recognition+using+smartph
 
 ## Files
 - 'run.analysis.R': Performs the data cleaning and transformations including merging
-- 'CodeBook.md': describes the variables of the final tidy, independent dataset with average values of each measurement variable grouped by subject and acitvity 
+- 'CodeBook.md': describes the variables of the final tidy, independent dataset with average values of each measurement variable grouped by subject and activity 
 
 ## Analysis
 The 'run.analysis.R' script: 
