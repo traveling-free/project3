@@ -1,53 +1,44 @@
 getwd()
 
-data1 <- read.table("subject_test.txt")
-data2 <- read.table("X_test.txt")
-data3 <- read.table("y_test.txt")
-
-test_data <- cbind(data1,data3,data2)
-
-# incorporating names from features.txt to X_test dataset
+# incorporating names from "features.txt" to X_test dataset
 features <- read.table("UCI HAR Dataset/features.txt")
 X_test <- read.table("X_test.txt")
 names(X_test) <- features$V2
 names(X_test)
 
-# incorporating "activity" to y_test dataset column
-y_test <- read.table("y_test.txt")
-names(y_test) <- "activity"
-
-# substituting numbers in y_test to activity names acc. to "activity_label.txt"
+# substituting numbers in y_test to activity names from "activity_label.txt" and adding "activity" to y-test column
 activity_labels <- read.table("UCI HAR Dataset/activity_labels.txt")
-positions <- match(y_test$activity, activity_labels$V1)
-activity_names <- activity_labels$V2[positions] 
-y_test$activity <- activity_names 
+positions_test <- match(y_test$V1, activity_labels$V1)
+activity_names_test <- activity_labels$V2[positions_test] 
+y_test$V1 <- activity_names_test
+names(y_test) <- "activity"
 
 # incorporating "subject" to subject_test dataset column
 subject_test <- read.table("subject_test.txt")
 names(subject_test) <- "subject"
 
-# combining the test sets 
+# combining the test datasets
 test_data <- cbind(subject_test, y_test, X_test)
 test_data
 
-# incorporating names to X dataset
-X_train <- read.table("X_train.txt")
+# incorporating names from "features.txt" to X_train dataset
 features <- read.table("UCI HAR Dataset/features.txt")
+X_train <- read.table("X_train.txt")
 names(X_train) <- features$V2
 
-# incorporating "activity" to y_train column
+# substituting numbers in y_train to activity names from "activity_label.txt" and adding "activity" to y-train column
+activity_labels <- read.table("UCI HAR Dataset/activity_labels.txt")
 y_train <- read.table("y_train.txt")
+positions_train <- match(y_train$V1, activity_labels$V1)
+activity_names_train <- activity_labels$V2[positions_train] 
+y_train$V1 <- activity_names_train
 names(y_train) <- "activity"
-
-# substituting numbers to activity names for y_train dataset
-positions_train <- match(y_train$activity, activity_labels$V1)
-y_train$activity <- activity_labels$V2[positions_train]
 
 # incorporating "subject" to subject_train column name 
 subject_train <- read.table("subject_train.txt")
 names(subject_train) <- "subject"
 
-# combining datasets of train 
+# combining the train datasets
 train_data <- cbind(subject_train, y_train, X_train)
 
 # merging test and train datasets
