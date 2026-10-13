@@ -9,7 +9,7 @@ https://archive.ics.uci.edu/dataset/240/human+activity+recognition+using+smartph
 ## Analysis
 The 'run.analysis.R' script: 
 1. Read the subject, y (activity), and X (measurement variables) for both train and test datasets. 
-2. Merge subject, y, and X accordingly for both train and test datasets.
+2. Merge subject, y, and X accordingly for train and test datasets.
 3. Merge the train and test datasets.
 4. Change the column names of X with names of the features_txt.
 5. Switch the column names of y with the name, "activity".
